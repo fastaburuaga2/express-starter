@@ -12,14 +12,15 @@ app.get('/', (req, res) => {
 })
 
 let bears = []
-let index = 0
+//let index = 0
 
 //EXAMPLE: POST http://localhost:3000/bears?bear1=juan&bear2=jose
 app.post('/bears', (req, res) => {
   // Send JSON
   for(var key in req.query){
-    bears[index] = req.query[key]
-    index++
+    bears.push(req.query[key])
+    //bears[index] = req.query[key]
+    //index++
   }
 
   res.send(`Your bears are ${bears}`)
